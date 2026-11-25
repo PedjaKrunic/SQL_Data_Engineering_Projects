@@ -33,34 +33,34 @@ Here is a breakdown of the most optimal skills for Data Engineers, based on both
 To identify skills that offer a balance between market demand and salary potential, I created a custom `optimal_score` 
 using logarithmic demand and median salary:
 
-`optimal_score = (LN(demand_count) * median_salary) / 1,000,000`
+optimal_score = (LN(demand_count) * median_salary) / 1,000,000
 
-- **Why use LN()?** A natural logarithm reduces the influence of very high demand counts while preserving their relative 
-    ranking. This prevents highly demanded skills, such as Python and SQL, from dominating the score simply because they 
-    appear in significantly more job postings.
+- Why use LN()? - A natural logarithm reduces the influence of very high demand counts while preserving their relative 
+  ranking. This prevents highly demanded skills, such as Python and SQL, from dominating the score simply because they 
+  appear in significantly more job postings.
 
-- **What if we used raw demand counts?** Multiplying raw demand by median salary would give demand a much greater 
-    influence on the final score. Consequently, skills like Python and SQL would dominate the ranking, potentially 
-    overshadowing specialized skills with higher salary potential, such as Terraform.
+- What if we used raw demand counts? - Multiplying raw demand by median salary would give demand a much greater 
+  influence on the final score. Consequently, skills like Python and SQL would dominate the ranking, potentially 
+  overshadowing specialized skills with higher salary potential, such as Terraform.
 
-- **Why combine demand and salary?** The goal is to identify skills that offer both strong market demand and attractive 
-    earning potential, rather than evaluating either factor independently.
+- Why combine demand and salary? - The goal is to identify skills that offer both strong market demand and attractive 
+  earning potential, rather than evaluating either factor independently.
 
 Key Insights:
 
-- **Terraform** ranks first with an optimal score of **0.97**, combining the highest median salary ($184,000) with 
-    relatively moderate demand (193 job postings).
-- **Python and SQL** rank second and third, demonstrating that foundational skills remain highly valuable due to their 
-    exceptionally high demand (over 1,100 job postings each).
-- **AWS** offers a strong balance between demand and salary, appearing in 783 job postings with a median salary of $137,320.
-- **Airflow and Spark** are among the most attractive Data Engineering technologies, combining substantial demand 
-    (386 and 503 postings) with median salaries of $150,000 and $140,000, respectively.
-- **Kafka and Kubernetes** demonstrate strong salary potential ($145,000 and $150,500), although their demand is lower than 
-    that of more frequently requested technologies.
-- **Cloud platforms and data processing technologies** (AWS, Azure, Snowflake, Spark, and Databricks) feature prominently, 
-    highlighting the importance of cloud infrastructure and distributed data processing in Data Engineering.
-- Overall, the results suggest that **specialized skills can offer higher salary potential, while foundational skills provide 
-    broader job opportunities**. Combining both categories may be an effective career strategy.
+- Terraform ranks first with an optimal score of 0.97, combining the highest median salary ($184,000) with 
+  relatively moderate demand (193 job postings).
+- Python and SQL rank second and fourth, demonstrating that foundational skills remain highly valuable due to their 
+  exceptionally high demand (over 1,100 job postings each).
+- AWS offers a strong balance between demand and salary, appearing in 783 job postings with a median salary of $137,320.
+- Airflow and Spark are among the most attractive Data Engineering technologies, combining substantial demand 
+  (386 and 503 postings) with median salaries of $150,000 and $140,000, respectively.
+- While demand for Kafka and Kubernetes i slower than for more common technologies, specialiying in them can lead to very 
+  high salaries.
+- Cloud platforms and data processing technologies (AWS, Azure, Snowflake, Spark, and Databricks) feature prominently, 
+  highlighting the importance of cloud infrastructure and distributed data processing in Data Engineering.
+- Overall, the results suggest that specialized skills can offer higher salary potential, while foundational skills provide 
+  broader job opportunities. Combining both categories may be an effective career strategy.
 
 
 ┌────────────┬──────────────┬─────────────────┬───────────────┬───────────────┐

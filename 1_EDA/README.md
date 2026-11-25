@@ -1,8 +1,12 @@
-# Exploratory Data Analysis w/ SQL: Job Market Analysis
+# 🔍 Exploratory Data Analysis w/ SQL: Job Market Analysis
 
-A SQL project analyzing the Data Engineer job market using real-world job posting data. It demonstrates my ability to **write analytical SQL queries, design efficient queries, and turn business questions into data-driven insights**.
+![EDA-Image](/images/Project1_EDA.drawio.png)
 
-## Executive Summary
+A SQL project analyzing the Data Engineer job market using real-world job posting data. This analysis is the initial stage of a broader Data Engineering project, focusing on understanding the data, its structure and the analytical requirements of downstream data consumers.
+
+It demonstrates my ability to **work with relational data models, write analytical SQL queries, explore datasets and turn business questions into data-driven insights**.
+
+## 📃 Executive Summary
 - ✅ **Project scope:** Built **3 analytical queries** that answer key questions about the data engineer job market
 - ✅ **Data modeling:** Used **multi-table joins** across fact, dimension and bridge tables to extract insights
 - ✅ **Analytics:** Applied **aggregations, filtering and sorting** to find top skills by demand, salary and overall value
@@ -14,7 +18,7 @@ If you only have a minute, check out these queries:
 3. [`03_optimal_skills.sql`](../1_EDA/03_optimal_skills.sql) - Ranks skills by combining logarithmic demand and median salary
 
 
-## Problem & Context
+## 🏹 Problem & Context
 
 Job market analysts need to answer questions like:
 - 🎯 **Most in-demand:** *Which skills are most in-demand for Data Engineers?*
@@ -26,27 +30,27 @@ This project analyzes a **data warehouse** built using a star schema design.
 ![Data Warehouse](../images/star_schema_job_analysis.png)
 
 The warehouse structure consists of:
-- **Fact Table:** `job_postings_fact` - Central table containing job posting details (job titles, locations, salaries, dates, ets.)
+- **Fact Table:** `job_postings_fact` - Central table containing job posting details (job titles, locations, salaries, dates)
 - **Dimension Tables:** 
     - `company_dim` - Company information linked to job postings
     - `skills_dim` - Skills catalog with skill names and types
 - **Bridge Table:** `skills_job_dim` - Resolves the many-to-many relationship between job postings and skills
 
-The queries join these tables to connect job postings with their associated skills and analyze market demand and salary trends.
+By joining these tables, I connected individual job postings with their associated skills to analyze market demand and salary patterns.
 
-## Tech Stack
+## 💼 Tech Stack
 - **Query Engine:** DuckDB for fast OLAP-style analytical queries
 - **Language:** SQL (ANSI-style with analytical functions)
 - **Data Model:** Star Schema with fact + dimension + bridge tables
 - **Development:** VS Code for SQL editing + Terminal for DuckDB CLI
 - **Version Control:** Git/GitHub for versioned SQL scripts
 
-## Analysis Overview
+## 🏗️ Analysis Overview
 
 ### Query Structure
 1. [**Top Demanded Skills**](../1_EDA/01_top_demanded_skills.sql) - Identifies the 10 most in-demand skills for remote Data Engineer positions
 2. [**Top Paying Skills**](../1_EDA/02_top_paying_skills.sql) - Analyzes the 25 highest-paying skills with salary and demand metrics
-3. [**Optimal Skills**](../1_EDA/03_optimal_skills.sql) - Calculates a custom optimal_score that combines logarithmic demand and median annual salary to identify the most valuable skills to learn:
+3. [**Optimal Skills**](../1_EDA/03_optimal_skills.sql) - Calculates a custom `optimal_score` that combines logarithmic demand and median annual salary to identify the most valuable skills to learn:
 
 `optimal_score = (LN(demand_count) * median_salary) / 1_000_000`
 
@@ -62,7 +66,7 @@ This approach balances demand and salary, allowing specialized skills with highe
 - 🔥 Big data tools: Apache Spark show strong demand with competitive compensation
 
 
-## SQL Skills Demonstrated
+## 💻 SQL Skills Demonstrated
 ### Query Design & Optimization
 - **Complex Joins:** Multi-table `INNER JOIN` operations across `job_postings_fact`, `skills_job_dim` and `skills_dim`
 - **Aggregations:** `COUNT()`. `MEDIAN()`, `ROUND()` for statistical analysis
@@ -71,7 +75,6 @@ This approach balances demand and salary, allowing specialized skills with highe
 
 ### Data Analysis Techniques
 - **Grouping:** `GROUP BY` for categorical analysis by skill
-- **Conditional Logic:** `CASE WHEN` statements for derived metrics
 - **Mathematical Funcitons:** `LN()` for natural logarithm transformation to normalize demand metrics
 - **Calculated Metrics:** Derived optimal score combining log-transformed demand with median salary
 - **HAVING clause:** Filtering aggregated results  (skills with >= postings)
