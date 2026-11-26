@@ -1,3 +1,11 @@
+/*
+CASE EXPRESSIONS - Usecases:
+1. Bucketing Data - group values into ranges
+2. Handling NULL Data - Handle NULLs explicitly
+3. Categorizing Values - Normalize inconsistent text
+4. Conditional Aggregation - aggregate subsets in one query
+*/
+
 -- Bucket Salaries
 -- <25 = Low
 -- 25-50 = Medium
@@ -98,7 +106,7 @@ WITH salaries AS (
 SELECT
     *,
     CASE
-        WHEN standardized_salary IS NULL THEN 'Missing'
+        --WHEN standardized_salary IS NULL THEN 'Missing'
         WHEN standardized_salary < 75000 then 'LOW'
         WHEN standardized_salary < 150000 then 'MEDIUM'
         ELSE 'HIGH'

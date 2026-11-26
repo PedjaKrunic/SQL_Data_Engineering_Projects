@@ -25,7 +25,7 @@ ORDER BY
 -- DATE_TRUNC
 SELECT 
     job_posted_date,
-    DATE_TRUNC('month', job_posted_date) as job_posted_month
+    DATE_TRUNC('month', job_posted_date)::DATE as job_posted_month
 FROM job_postings_fact
 ORDER BY RANDOM()
 LIMIT 10;
@@ -44,7 +44,8 @@ ORDER BY job_posted_month;
 
 -- AT TIME ZONE
 SELECT
-    '2026-01-01 00:00:00+00'::TIMESTAMPTZ AT TIME ZONE 'CET';
+    '2026-01-01 00:00:00+00'::TIMESTAMPTZ AT TIME ZONE 'CET',
+    CURRENT_TIMESTAMP AT TIME ZONE 'CET';
 
 SELECT 
     job_posted_date

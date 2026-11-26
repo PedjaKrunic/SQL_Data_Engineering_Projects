@@ -71,7 +71,7 @@ WITH skill_table AS(
     UNION ALL
     SELECT 'r', 'programming'
 ), skills_array_struct AS(
-SELECT
+    SELECT
         ARRAY_AGG(
             STRUCT_PACK(
                 skill:= skills,
@@ -97,8 +97,8 @@ WITH skill_map AS(
     } AS skill_type
 )
 SELECT
-    skill_type['skill'],
-    skill_type['type']
+    skill_type['skill'] AS skill,
+    skill_type['type'] AS type
 FROM skill_map;
 
 
