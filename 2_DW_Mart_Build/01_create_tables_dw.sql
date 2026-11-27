@@ -1,4 +1,5 @@
 -- Step 1: DW - Create star schema tables
+-- Schedule of creating and droping tables is important
 
 DROP TABLE IF EXISTS skills_job_dim;
 DROP TABLE IF EXISTS job_postings_fact;
